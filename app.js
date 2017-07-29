@@ -15,6 +15,13 @@ var argv = yargs
 .argv;
 
 var address = encodeURIComponent(argv.a);
- geocode.geocodeAddress(address);
+ geocode.geocodeAddress(address, (errors, results) => {
+ 	if(errors){
+ 		console.log(errors);
+ 	}else{
+ 		console.log(JSON.stringify(results, undefined, 2));
+ 	}
+
+ });
 
 
